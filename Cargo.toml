@@ -1,0 +1,18 @@
+[workspace]
+resolver = "3"
+members = ["eclipsed", "eclipsed-ffi"]
+
+[workspace.package]
+version = "0.2.0"
+authors = ["Boop <umbra.boop@outlook.com>"]
+edition = "2024"
+rust-version = "1.88"
+repository = "https://github.com/umbreon-boop/eclipsed"
+license = "MPL-2.0"
+
+[workspace.lints.rust]
+unsafe_op_in_unsafe_fn = "deny"
+missing_debug_implementations = "warn"
+
+[workspace.lints.clippy]
+undocumented_unsafe_blocks = "warn"

@@ -1,0 +1,23 @@
+[package]
+name = "eclipsed-ffi"
+description = "C ABI for eclipsed"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+license.workspace = true
+
+[lints]
+workspace = true
+
+[lib]
+name = "eclipsed_ffi"
+crate-type = ["cdylib", "staticlib"]
+
+[dependencies]
+bumpalo = "3.20.2"
+eclipsed = { path = "../eclipsed", features = ["cst", "luau", "luajit", "cfxlua"] }
+
+[build-dependencies]
+cbindgen = { version = "0.29.4", default-features = false }

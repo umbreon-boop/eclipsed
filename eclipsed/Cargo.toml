@@ -1,0 +1,70 @@
+[package]
+name = "eclipsed"
+description = "A lossless Lua parser designed for editing the syntax tree in batched passes."
+keywords = ["lua", "luau", "parser", "transform"]
+categories = ["parser-implementations"]
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+license.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+bumpalo = { version = "3.20.2", features = ["collections"] }
+rustc-hash = "2.1.2"
+stacker = "0.1.25"
+thiserror = "2.0.18"
+
+[dev-dependencies]
+criterion = "0.5.1"
+
+[features]
+default = []
+# Trivia-carrying tokens, `stream::TokenStream` and the `api` entry point.
+cst = []
+# Internal use only, enabled by the dialects that have it.
+compound = []
+luau = ["compound"]
+luajit = []
+cfxlua = ["compound"]
+
+[[example]]
+name = "minify"
+required-features = ["cst", "luau", "luajit", "cfxlua"]
+
+[[example]]
+name = "docs"
+required-features = ["cst", "luau", "luajit", "cfxlua"]
+
+[[bench]]
+name = "parse"
+harness = false
+required-features = ["cst", "luau"]
+
+[[test]]
+name = "stream"
+required-features = ["cst", "luau", "luajit", "cfxlua"]
+
+[[test]]
+name = "cst_trivia"
+required-features = ["cst"]
+
+[[test]]
+name = "typespan"
+required-features = ["cst", "luau"]
+
+[[test]]
+name = "luau"
+required-features = ["luau"]
+
+[[test]]
+name = "luajit"
+required-features = ["luajit"]
+
+[[test]]
+name = "cfxlua"
+required-features = ["cfxlua"]
