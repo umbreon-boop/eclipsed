@@ -1,8 +1,15 @@
 //! A lossless lexer and parser for Lua 5.4, Luau, LuaJIT and CfxLua.
 //!
-//! [`api::with_chunk`] is the convenient entry point; [`lexer`] and [`parser`]
-//! are the underlying pieces. Dialects other than Lua and the trivia-carrying
-//! token stream are behind cargo features.
+#![cfg_attr(
+    feature = "cst",
+    doc = "[`api::with_chunk`] is the convenient entry point; [`lexer`] and [`parser`] are the underlying pieces."
+)]
+#![cfg_attr(
+    not(feature = "cst"),
+    doc = "[`lexer`] and [`parser`] are the underlying pieces."
+)]
+//! Dialects other than Lua and the trivia-carrying token stream are behind
+//! cargo features.
 
 #![deny(unsafe_code)]
 

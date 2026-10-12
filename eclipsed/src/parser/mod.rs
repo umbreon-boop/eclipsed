@@ -1,4 +1,25 @@
 //! Recursive-descent parser producing the [`crate::ast`].
+//!
+#![cfg_attr(
+    feature = "cst",
+    doc = "With the `cst` feature, [`crate::api::with_chunk`] owns the arena, interner and lexer for you; without it, build those yourself."
+)]
+#![cfg_attr(not(feature = "cst"), doc = "Build the arena and interner yourself.")]
+//! Then drive [`Lexer`](crate::lexer::Lexer) and [`Parser`] directly:
+//!
+//! ```
+//! use bumpalo::Bump;
+//! use eclipsed::{Dialect, interner::Interner, lexer::Lexer, parser::Parser};
+//!
+//! let source = "local x = 1 -- hi\nreturn x";
+//! let arena = Bump::new();
+//! let tokens = Lexer::new(source, &arena, Dialect::Lua).lex();
+//! let mut interner = Interner::new();
+//! let statements = Parser::new(tokens, source, &arena, &mut interner, Dialect::Lua)
+//!     .parse()
+//!     .unwrap();
+//! assert_eq!(statements.len(), 2);
+//! ```
 
 use bumpalo::Bump;
 use thiserror::Error;

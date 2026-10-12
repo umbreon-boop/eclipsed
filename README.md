@@ -1,12 +1,12 @@
 <div align="center">
 	<h1>
 		Eclipsed<br>
-		<a href="https://crates.io/crates/eclipsed"><img src="https://img.shields.io/crates/v/eclipsed.svg"></a>
-    <a href="https://docs.rs/eclipsed"><img src="https://img.shields.io/docsrs/eclipsed"></a>
+		<a href="https://crates.io/crates/eclipsed"><img src="https://img.shields.io/crates/dependents/eclipsed?style=for-the-badge"></a>
+    <a href="https://docs.rs/eclipsed"><img src="https://img.shields.io/docsrs/eclipsed?style=for-the-badge"></a>
 	</h1>
 </div>
 
-Eclipsed is a lossless Lua 5.1 / 5.2 / 5.3 / 5.4 / [Luau](https://luau-lang.org/) / [CfxLua](https://docs.fivem.net/docs/scripting-manual/runtimes/lua/) parser designed for editing the syntax tree in batched passes.
+Eclipsed is a lossless Lua 5.1 / 5.2 / 5.3 / 5.4 / [LuaJIT](https://luajit.org/) / [Luau](https://luau-lang.org/) / [CfxLua](https://docs.fivem.net/docs/scripting-manual/runtimes/lua/) parser designed for editing the syntax tree in batched passes.
 
 ## Lossless
 

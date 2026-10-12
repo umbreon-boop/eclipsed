@@ -1,6 +1,7 @@
 [package]
 name = "eclipsed"
 description = "A lossless Lua parser designed for editing the syntax tree in batched passes."
+readme = "../README.md"
 keywords = ["lua", "luau", "parser", "transform"]
 categories = ["parser-implementations"]
 version.workspace = true
@@ -9,6 +10,9 @@ edition.workspace = true
 rust-version.workspace = true
 repository.workspace = true
 license.workspace = true
+
+[package.metadata.docs.rs]
+all-features = true
 
 [lints]
 workspace = true

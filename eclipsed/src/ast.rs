@@ -1,5 +1,9 @@
 //! The abstract syntax tree. Nodes live in the parser's arena and record
-//! meaning, not layout; trivia lives in [`crate::stream::TokenStream`].
+//! meaning, not layout.
+#![cfg_attr(
+    feature = "cst",
+    doc = "Trivia lives in [`crate::stream::TokenStream`]."
+)]
 
 use crate::interner::Symbol;
 use crate::lexer::Span;
